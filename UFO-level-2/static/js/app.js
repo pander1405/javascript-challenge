@@ -26,10 +26,27 @@ button.on("click", function() {
 
 
     var element = d3.select("#datetime");
+    var city = d3.select('#city');
+    var state = d3.select('#state');
+    var country = d3.select('#country');
+    var shape = d3.select('#shape');
 
-    var inputValue = element.property("value");
+    var datetimeValue = element.property("value");
+    var cityValue = city.property("value");
+    var stateValue = state.property('value');
+    var countryValue = country.property('value');
+    var shapeValue = shape.property('value');
+
     // Filter datetime
-    var filteredData = tableData.filter(event => event.datetime === inputValue);
+    var filteredData = tableData.filter(event => event.datetime === datetimeValue);
+    // Filter City
+    var filteredData2 = filteredData.filter(event => event.city === cityValue);
+    // Filter State
+    var filteredData3 = filteredData2.filter(event => event.state === stateValue);
+    // Filter Country
+    var filteredData4 = filteredData3.filter(event => event.country === countryValue);
+    // Filter Shape
+    var filteredData5 = filteredData4.filter(event => event.shape === shapeValue);
 
     filteredData.forEach(function(filteredData) {
 
